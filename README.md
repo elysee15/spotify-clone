@@ -1,7 +1,8 @@
 # spotify
-
+This is a training project
 ## Project setup
 ```
+superman versioning
 yarn install
 ```
 
@@ -12,17 +13,17 @@ yarn serve
 
 ### Compiles and minifies for production
 ```
-yarn build
+vue-cli-service build
 ```
 
 ### Run your unit tests
 ```
-yarn test:unit
+vue-cli-service test:unit
 ```
 
 ### Lints and fixes files
 ```
-yarn lint
+vue-cli-service lint
 ```
 
 ### Customize configuration
