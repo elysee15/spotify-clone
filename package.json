@@ -1,6 +1,6 @@
 {
   "name": "spotify",
-  "version": "0.0.0",
+  "version": "0.0.3",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -11,17 +11,22 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "husky": "^4.2.5",
+    "postcss": "^7.0.32",
     "superman-versioning": "^0.1.7",
+    "tailwindcss": "^1.6.0",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0"
   },
   "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^2.3.0",
     "@vue/cli-plugin-babel": "~4.4.0",
     "@vue/cli-plugin-eslint": "~4.4.0",
     "@vue/cli-plugin-router": "~4.4.0",
     "@vue/cli-plugin-unit-jest": "~4.4.0",
     "@vue/cli-service": "~4.4.0",
     "@vue/test-utils": "^1.0.3",
+    "autoprefixer": "^9.8.6",
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
     "eslint-config-prettier": "^6.11.0",
@@ -58,6 +63,12 @@
       }
     ]
   },
+  "postcss": {
+    "plugins": {
+      "tailwindcss": "./tailwind.config.js",
+      "autoprefixer": {}
+    }
+  },
   "browserslist": [
     "> 1%",
     "last 2 versions",
@@ -66,10 +77,9 @@
   "jest": {
     "preset": "@vue/cli-plugin-unit-jest"
   },
-  "pre-commit": [
-    "test:unit",
-    "lint",
-    "superman:update",
-    "git add ."
-  ]
+  "husky": {
+    "hooks": {
+        "pre-commit": "npm run superman:update && npm run lint && git add ."
+    }
+}
 }
